@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+    <div class="article_entry">
+        <h2>{{ object.title}}</h2>
+        <p> {{ object.author}} | {{ object.date}}</p>
+        {% if articles.photo %}
+        <div >
+            <img src="{{ articles.photo.url}} " style="width:50%" alt="{{object.title}}">
+        </div>
+
+        {% endif %}
+        <p> {{ object.body }}</p>
+    </div>
+    <p>
+        <a href="{% url 'article_edit' articles.pk%}" class="btn btn-primary">Tahrirlash</a>
+        <a href="{% url 'article_delete' articles.pk %}" class="btn btn-danger">O'chirish</a>
+    <p><a href=" {% url 'article_list' %}">Barcha maqolalarni ko'rish</a></p>
+    </p>
+
+</div>
+
+
+{% endblock content %}
